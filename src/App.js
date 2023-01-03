@@ -1,15 +1,18 @@
 import { useState } from "react";
 import Header from './components/Header'
-import SearchBar from './components/SearchBar'
+import SearchBar from './components/Searchbar'
 import WeatherContainer from './components/WeatherContainer'
 
 function App() {
-  const [search, setSearch] = useState('')
+  const [city, setCity] = useState('London')
+  const[country, setCountry] = useState('GB')
+  const [lat, setLat] = useState('')
+  const [long, setLong] = useState('')
   return (
     <div className="App">
       <Header/>
-      <SearchBar/>
-      <WeatherContainer/>
+      <SearchBar setCity={setCity} setCountry={setCountry} setLat={setLat} setLong={setLong}/>
+      <WeatherContainer lat={lat} long={long} />
     </div>
   );
 }

@@ -1,7 +1,14 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
 
-export default function weatherContainer() {
+export default function WeatherContainer({city, country}) {
+  const [weather, setWeather] = useState("")
+
+  useEffect(()=>{
+    console.log(city, country)
+  })
+
   return (
-    <div>yo</div>
+    <div>{country}</div>
   )
 }
