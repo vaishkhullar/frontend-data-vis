@@ -4,8 +4,8 @@ import SearchBar from './components/Searchbar'
 import WeatherContainer from './components/WeatherContainer'
 
 function App() {
-  const [lat, setLat] = useState('')
-  const [long, setLong] = useState('')
+  const [lat, setLat] = useState('51.5074')
+  const [long, setLong] = useState('-0.1276474')
   return (
     <div className="App">
       <Header/>
