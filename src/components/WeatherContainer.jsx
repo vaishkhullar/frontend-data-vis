@@ -23,7 +23,32 @@ export default function WeatherContainer({lat, long}) {
     console.log(Object.keys(cityWeather))
     console.log(cityWeather.main.temp, 'temp')
     return (
-      <div><p>{cityWeather.main.temp}</p></div>
+    <div>
+      <h2 id='containerHeader'> {cityWeather.name}</h2>
+      <div id='currentWeather'> Current Weather: {cityWeather.weather[0].description}</div>
+      <box>
+        <div> Current Temp. {tempConversion(cityWeather.main.temp)}</div>
+        <div> Max. Temp. {tempConversion(cityWeather.main.temp_max)}</div>
+        <div> Min. Temp. {tempConversion(cityWeather.main.temp_min)}</div>
+      </box>
+      <box>
+        <div> Humidity: {cityWeather.main.humidity}</div>
+        <div> Pressure: {cityWeather.main.pressure}</div>
+      </box>
+      <div> Sunrise: {unixConversion(cityWeather.sys.sunrise)}</div>
+      <div> Sunset: {cityWeather.sys.sunset}</div>
+
+
+    </div>
+
+
     )
   }
+}
+
+function tempConversion(temp) {
+    return Math.round(temp - 273.15)
+}
+function unixConversion(time) {
+    return Date(time*1000)
 }
